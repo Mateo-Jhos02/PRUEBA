@@ -126,15 +126,15 @@ export function AccountSecurityCard() {
   const passwordsMatch = newPassword === confirmPassword && confirmPassword.length > 0;
 
   return (
-    <Card className="border-destructive/20 bg-card p-0 sm:p-0">
+    <Card className="w-full border-destructive/20 bg-card p-0 sm:p-0">
       {/* Header */}
-      <div className="border-b border-border p-5 sm:p-6">
+      <div className="border-b border-border p-4 sm:p-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-destructive/10 text-destructive">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-destructive/10 text-destructive sm:h-11 sm:w-11 sm:rounded-2xl">
             <Shield className="h-5 w-5" />
           </div>
-          <div>
-            <h2 className="text-xl font-semibold text-foreground">Seguridad de la Cuenta</h2>
+          <div className="min-w-0">
+            <h2 className="text-lg font-semibold text-foreground sm:text-xl">Seguridad de la Cuenta</h2>
             <p className="text-sm text-muted-foreground">
               Gestiona tu contrasena y correo electronico
             </p>
@@ -147,21 +147,21 @@ export function AccountSecurityCard() {
         <button
           type="button"
           onClick={() => toggleSection('password')}
-          className="flex w-full items-center justify-between p-5 text-left transition-colors hover:bg-muted/50 sm:p-6"
+          className="flex w-full items-center justify-between gap-2 p-4 text-left transition-colors hover:bg-muted/50 sm:p-6"
         >
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary sm:h-10 sm:w-10">
               <Key className="h-4 w-4" />
             </div>
-            <div>
-              <p className="font-medium text-foreground">Cambiar Contrasena</p>
-              <p className="text-sm text-muted-foreground">
+            <div className="min-w-0">
+              <p className="truncate text-sm font-medium text-foreground sm:text-base">Cambiar Contrasena</p>
+              <p className="truncate text-xs text-muted-foreground sm:text-sm">
                 Actualiza tu contrasena de acceso
               </p>
             </div>
           </div>
           <ChevronDown
-            className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+            className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300 ${
               expandedSection === 'password' ? 'rotate-180' : ''
             }`}
           />
@@ -240,24 +240,26 @@ export function AccountSecurityCard() {
                         <p className="text-xs text-muted-foreground">
                           Ingresa el codigo de 6 digitos enviado a tu correo
                         </p>
-                        <div className="flex justify-center py-2">
-                          <InputOTP
-                            maxLength={6}
-                            value={passwordOtp}
-                            onChange={setPasswordOtp}
-                          >
-                            <InputOTPGroup>
-                              <InputOTPSlot index={0} />
-                              <InputOTPSlot index={1} />
-                              <InputOTPSlot index={2} />
-                            </InputOTPGroup>
-                            <InputOTPSeparator />
-                            <InputOTPGroup>
-                              <InputOTPSlot index={3} />
-                              <InputOTPSlot index={4} />
-                              <InputOTPSlot index={5} />
-                            </InputOTPGroup>
-                          </InputOTP>
+                        <div className="flex justify-center overflow-x-auto py-2">
+                          <div className="scale-90 sm:scale-100">
+                            <InputOTP
+                              maxLength={6}
+                              value={passwordOtp}
+                              onChange={setPasswordOtp}
+                            >
+                              <InputOTPGroup>
+                                <InputOTPSlot index={0} />
+                                <InputOTPSlot index={1} />
+                                <InputOTPSlot index={2} />
+                              </InputOTPGroup>
+                              <InputOTPSeparator />
+                              <InputOTPGroup>
+                                <InputOTPSlot index={3} />
+                                <InputOTPSlot index={4} />
+                                <InputOTPSlot index={5} />
+                              </InputOTPGroup>
+                            </InputOTP>
+                          </div>
                         </div>
                       </div>
 
@@ -393,21 +395,21 @@ export function AccountSecurityCard() {
         <button
           type="button"
           onClick={() => toggleSection('email')}
-          className="flex w-full items-center justify-between p-5 text-left transition-colors hover:bg-muted/50 sm:p-6"
+          className="flex w-full items-center justify-between gap-2 p-4 text-left transition-colors hover:bg-muted/50 sm:p-6"
         >
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600 sm:h-10 sm:w-10">
               <Mail className="h-4 w-4" />
             </div>
-            <div>
-              <p className="font-medium text-foreground">Cambiar Correo Electronico</p>
-              <p className="text-sm text-muted-foreground">
+            <div className="min-w-0">
+              <p className="truncate text-sm font-medium text-foreground sm:text-base">Cambiar Correo Electronico</p>
+              <p className="truncate text-xs text-muted-foreground sm:text-sm">
                 Actualiza tu direccion de email
               </p>
             </div>
           </div>
           <ChevronDown
-            className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+            className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300 ${
               expandedSection === 'email' ? 'rotate-180' : ''
             }`}
           />
@@ -498,24 +500,26 @@ export function AccountSecurityCard() {
                         <label className="text-sm font-medium text-foreground">
                           Codigo de verificacion
                         </label>
-                        <div className="flex justify-center py-2">
-                          <InputOTP
-                            maxLength={6}
-                            value={emailOtp}
-                            onChange={setEmailOtp}
-                          >
-                            <InputOTPGroup>
-                              <InputOTPSlot index={0} />
-                              <InputOTPSlot index={1} />
-                              <InputOTPSlot index={2} />
-                            </InputOTPGroup>
-                            <InputOTPSeparator />
-                            <InputOTPGroup>
-                              <InputOTPSlot index={3} />
-                              <InputOTPSlot index={4} />
-                              <InputOTPSlot index={5} />
-                            </InputOTPGroup>
-                          </InputOTP>
+                        <div className="flex justify-center overflow-x-auto py-2">
+                          <div className="scale-90 sm:scale-100">
+                            <InputOTP
+                              maxLength={6}
+                              value={emailOtp}
+                              onChange={setEmailOtp}
+                            >
+                              <InputOTPGroup>
+                                <InputOTPSlot index={0} />
+                                <InputOTPSlot index={1} />
+                                <InputOTPSlot index={2} />
+                              </InputOTPGroup>
+                              <InputOTPSeparator />
+                              <InputOTPGroup>
+                                <InputOTPSlot index={3} />
+                                <InputOTPSlot index={4} />
+                                <InputOTPSlot index={5} />
+                              </InputOTPGroup>
+                            </InputOTP>
+                          </div>
                         </div>
                       </div>
 

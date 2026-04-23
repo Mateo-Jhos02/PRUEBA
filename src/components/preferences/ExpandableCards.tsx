@@ -45,23 +45,23 @@ export function BiographyCard({ initialBio, onSave }: BiographyCardProps) {
 
   return (
     <Card
-      className={`cursor-pointer p-5 transition-all duration-300 sm:p-6 ${
+      className={`w-full cursor-pointer p-4 transition-all duration-300 sm:p-6 ${
         isExpanded ? 'ring-2 ring-primary/30' : 'hover:border-primary/30'
       }`}
       onClick={() => !isExpanded && setIsExpanded(true)}
     >
-      <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600 sm:h-11 sm:w-11 sm:rounded-2xl">
           <FileText className="h-5 w-5" />
         </div>
-        <div className="flex-1">
-          <h2 className="text-xl font-semibold text-foreground">Biografia</h2>
-          <p className="text-sm text-muted-foreground">
+        <div className="min-w-0 flex-1">
+          <h2 className="text-lg font-semibold text-foreground sm:text-xl">Biografia</h2>
+          <p className="truncate text-xs text-muted-foreground sm:text-sm">
             Tu presentacion profesional
           </p>
         </div>
         <ChevronRight
-          className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+          className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300 ${
             isExpanded ? 'rotate-90' : ''
           }`}
         />
@@ -167,23 +167,23 @@ export function SkillsCard({ skills, onAddSkill, onRemoveSkill }: SkillsCardProp
 
   return (
     <Card
-      className={`cursor-pointer p-5 transition-all duration-300 sm:p-6 ${
+      className={`w-full cursor-pointer p-4 transition-all duration-300 sm:p-6 ${
         isExpanded ? 'ring-2 ring-primary/30' : 'hover:border-primary/30'
       }`}
       onClick={() => !isExpanded && setIsExpanded(true)}
     >
-      <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-500/10 text-violet-600">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-500/10 text-violet-600 sm:h-11 sm:w-11 sm:rounded-2xl">
           <Sparkles className="h-5 w-5" />
         </div>
-        <div className="flex-1">
-          <h2 className="text-xl font-semibold text-foreground">Skills</h2>
-          <p className="text-sm text-muted-foreground">
+        <div className="min-w-0 flex-1">
+          <h2 className="text-lg font-semibold text-foreground sm:text-xl">Skills</h2>
+          <p className="truncate text-xs text-muted-foreground sm:text-sm">
             Capacidades tecnicas y fortalezas
           </p>
         </div>
         <ChevronRight
-          className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+          className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300 ${
             isExpanded ? 'rotate-90' : ''
           }`}
         />
@@ -332,23 +332,23 @@ export function ContactCard({ contact, onSave }: ContactCardProps) {
 
   return (
     <Card
-      className={`cursor-pointer p-5 transition-all duration-300 sm:p-6 ${
+      className={`w-full cursor-pointer p-4 transition-all duration-300 sm:p-6 ${
         isExpanded ? 'ring-2 ring-primary/30' : 'hover:border-primary/30'
       }`}
       onClick={() => !isExpanded && setIsExpanded(true)}
     >
-      <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-600">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600 sm:h-11 sm:w-11 sm:rounded-2xl">
           <Mail className="h-5 w-5" />
         </div>
-        <div className="flex-1">
-          <h2 className="text-xl font-semibold text-foreground">Contacto</h2>
-          <p className="text-sm text-muted-foreground">
+        <div className="min-w-0 flex-1">
+          <h2 className="text-lg font-semibold text-foreground sm:text-xl">Contacto</h2>
+          <p className="truncate text-xs text-muted-foreground sm:text-sm">
             Canales de comunicacion
           </p>
         </div>
         <ChevronRight
-          className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+          className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300 ${
             isExpanded ? 'rotate-90' : ''
           }`}
         />
@@ -460,20 +460,20 @@ export function NavigationCard({
 
   return (
     <Card
-      className="group cursor-pointer p-5 transition-all duration-300 hover:border-primary/30 sm:p-6"
+      className="group w-full cursor-pointer p-4 transition-all duration-300 hover:border-primary/30 sm:p-6"
       onClick={() => navigate(to)}
     >
-      <div className="flex items-center gap-3">
-        <div className={`flex h-11 w-11 items-center justify-center rounded-2xl ${iconBgClass} ${iconColorClass}`}>
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl sm:h-11 sm:w-11 sm:rounded-2xl ${iconBgClass} ${iconColorClass}`}>
           <Icon className="h-5 w-5" />
         </div>
-        <div className="flex-1">
-          <h2 className="text-xl font-semibold text-foreground">{title}</h2>
-          <p className="text-sm text-muted-foreground">{description}</p>
+        <div className="min-w-0 flex-1">
+          <h2 className="text-lg font-semibold text-foreground sm:text-xl">{title}</h2>
+          <p className="truncate text-xs text-muted-foreground sm:text-sm">{description}</p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           {itemCount !== undefined && (
-            <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary sm:px-2.5 sm:py-1">
               {itemCount}
             </span>
           )}

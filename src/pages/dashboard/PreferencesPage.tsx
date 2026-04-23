@@ -94,12 +94,12 @@ export default function PreferencesPage() {
   }
 
   return (
-    <section className="space-y-6 xl:space-y-7">
+    <section className="w-full max-w-full space-y-4 overflow-x-hidden px-4 sm:space-y-6 sm:px-6 xl:space-y-7">
       {/* Hero Card */}
-      <div className="overflow-hidden rounded-3xl border border-border bg-card">
-        <div className="relative px-5 py-7 sm:px-8 sm:py-10">
+      <div className="w-full overflow-hidden rounded-2xl border border-border bg-card sm:rounded-3xl">
+        <div className="relative px-4 py-5 sm:px-8 sm:py-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.14),_transparent_32%),radial-gradient(circle_at_bottom_left,_rgba(249,115,22,0.10),_transparent_28%)]" />
-          <div className="relative grid gap-5 sm:gap-6 lg:grid-cols-[1.3fr_0.9fr]">
+          <div className="relative flex flex-col gap-5 sm:gap-6 lg:grid lg:grid-cols-[1.3fr_0.9fr]">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-medium text-muted-foreground">
                 <Sparkles className="h-3.5 w-3.5 text-primary" />
@@ -107,7 +107,7 @@ export default function PreferencesPage() {
               </div>
 
               <div>
-                <h1 className="text-3xl font-semibold tracking-tight text-foreground">
+                <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
                   Preferencias del perfil profesional
                 </h1>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
@@ -126,37 +126,37 @@ export default function PreferencesPage() {
             </div>
 
             {/* User Card with Edit Button */}
-            <div className="relative rounded-3xl border border-border bg-background/80 p-4 sm:p-5 backdrop-blur">
+            <div className="relative w-full rounded-2xl border border-border bg-background/80 p-4 backdrop-blur sm:rounded-3xl sm:p-5">
               {/* Edit Button */}
               <button
                 type="button"
                 onClick={() => setIsProfileModalOpen(true)}
-                className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
+                className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground transition-all hover:border-primary hover:bg-primary/10 hover:text-primary sm:right-4 sm:top-4"
                 aria-label="Editar perfil"
               >
                 <Pencil className="h-4 w-4" />
               </button>
 
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <img
                   src={user.avatar}
                   alt={user.name}
-                  className="h-16 w-16 rounded-2xl object-cover"
+                  className="h-14 w-14 shrink-0 rounded-xl object-cover sm:h-16 sm:w-16 sm:rounded-2xl"
                 />
-                <div className="min-w-0">
-                  <p className="text-lg font-semibold text-foreground">{user.name}</p>
-                  <p className="text-sm text-primary">{user.profession}</p>
-                  <div className="mt-3 space-y-2 text-sm text-muted-foreground">
+                <div className="min-w-0 flex-1 pr-8">
+                  <p className="truncate text-base font-semibold text-foreground sm:text-lg">{user.name}</p>
+                  <p className="truncate text-sm text-primary">{user.profession}</p>
+                  <div className="mt-2 space-y-1.5 text-sm text-muted-foreground sm:mt-3 sm:space-y-2">
                     <div className="flex items-center gap-2">
-                      <Mail className="h-4 w-4" />
+                      <Mail className="h-4 w-4 shrink-0" />
                       <span className="truncate">{user.email}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4" />
-                      <span>{user.location}</span>
+                      <MapPin className="h-4 w-4 shrink-0" />
+                      <span className="truncate">{user.location}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Globe2 className="h-4 w-4" />
+                      <Globe2 className="h-4 w-4 shrink-0" />
                       <span className="truncate">{user.website || 'Sitio personal pendiente'}</span>
                     </div>
                   </div>
@@ -168,15 +168,15 @@ export default function PreferencesPage() {
       </div>
 
       {error && (
-        <Card className="border-destructive/30 bg-destructive/5 p-4">
+        <Card className="w-full border-destructive/30 bg-destructive/5 p-3 sm:p-4">
           <p className="text-sm text-muted-foreground">{error}</p>
         </Card>
       )}
 
       {/* Main Grid */}
-      <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+      <div className="flex w-full flex-col gap-4 sm:gap-6 xl:grid xl:grid-cols-[1.15fr_0.85fr]">
         {/* Left Column - Interactive Cards */}
-        <div className="space-y-4">
+        <div className="w-full space-y-3 sm:space-y-4">
           {/* Interactive Section Cards */}
           <BiographyCard
             initialBio={user.bio || ''}
@@ -210,22 +210,22 @@ export default function PreferencesPage() {
         </div>
 
         {/* Right Column - Static Info */}
-        <div className="space-y-6 xl:sticky xl:top-24 xl:self-start">
+        <div className="w-full space-y-4 sm:space-y-6 xl:sticky xl:top-24 xl:self-start">
           {/* Account Preferences */}
-          <Card className="p-5 sm:p-6">
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+          <Card className="w-full p-4 sm:p-6">
+            <div className="mb-4 flex flex-col gap-3 sm:mb-5 sm:flex-row sm:items-center">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary sm:h-11 sm:w-11 sm:rounded-2xl">
                 <Languages className="h-5 w-5" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-foreground">Preferencias de cuenta</h2>
+                <h2 className="text-lg font-semibold text-foreground sm:text-xl">Preferencias de cuenta</h2>
                 <p className="text-sm text-muted-foreground">
                   Ajustes base cargados desde el perfil.
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
               <PreferenceTile
                 icon={Languages}
                 label="Idioma"
@@ -254,48 +254,48 @@ export default function PreferencesPage() {
           </Card>
 
           {/* Portfolio Order */}
-          <Card className="p-5 sm:p-6">
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600">
+          <Card className="w-full p-4 sm:p-6">
+            <div className="mb-4 flex flex-col gap-3 sm:mb-5 sm:flex-row sm:items-center">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 sm:h-11 sm:w-11 sm:rounded-2xl">
                 <Grip className="h-5 w-5" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-foreground">Orden del portafolio</h2>
+                <h2 className="text-lg font-semibold text-foreground sm:text-xl">Orden del portafolio</h2>
                 <p className="text-sm text-muted-foreground">
                   Secuencia sugerida para tu perfil publico.
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-3">
+            <div className="grid gap-2 sm:gap-3">
               {orderedSections.map((section, index) => (
                 <div
                   key={`${section}-${index}`}
-                  className="flex items-center justify-between rounded-2xl border border-border bg-background/70 px-4 py-3"
+                  className="flex items-center justify-between rounded-xl border border-border bg-background/70 px-3 py-2.5 sm:rounded-2xl sm:px-4 sm:py-3"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground sm:h-8 sm:w-8">
                       {index + 1}
                     </div>
-                    <div>
-                      <p className="font-medium text-foreground">{formatSectionLabel(section)}</p>
-                      <p className="text-xs text-muted-foreground">
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-medium text-foreground sm:text-base">{formatSectionLabel(section)}</p>
+                      <p className="truncate text-xs text-muted-foreground">
                         {sectionDescription(section)}
                       </p>
                     </div>
                   </div>
-                  <LayoutTemplate className="h-4 w-4 text-muted-foreground" />
+                  <LayoutTemplate className="h-4 w-4 shrink-0 text-muted-foreground" />
                 </div>
               ))}
             </div>
           </Card>
 
           {/* Work Signals */}
-          <Card className="p-5 sm:p-6">
-            <h2 className="text-lg font-semibold text-foreground">Senales de trabajo</h2>
-            <div className="mt-4 space-y-3">
+          <Card className="w-full p-4 sm:p-6">
+            <h2 className="text-base font-semibold text-foreground sm:text-lg">Senales de trabajo</h2>
+            <div className="mt-3 space-y-2 sm:mt-4 sm:space-y-3">
               {workSignals.map((signal) => (
-                <div key={signal} className="rounded-2xl bg-muted/60 px-4 py-3 text-sm text-foreground">
+                <div key={signal} className="rounded-xl bg-muted/60 px-3 py-2.5 text-sm text-foreground sm:rounded-2xl sm:px-4 sm:py-3">
                   {signal}
                 </div>
               ))}
@@ -303,9 +303,9 @@ export default function PreferencesPage() {
           </Card>
 
           {/* Profile Summary */}
-          <Card className="p-5 sm:p-6">
-            <h2 className="text-lg font-semibold text-foreground">Resumen del perfil</h2>
-            <div className="mt-4 space-y-4">
+          <Card className="w-full p-4 sm:p-6">
+            <h2 className="text-base font-semibold text-foreground sm:text-lg">Resumen del perfil</h2>
+            <div className="mt-3 space-y-2 sm:mt-4 sm:space-y-4">
               <SummaryRow label="Slug publico" value={user.slug} />
               <SummaryRow label="Rol activo" value={user.role} />
               <SummaryRow label="Ubicacion" value={user.location} />
@@ -336,26 +336,26 @@ function PreferenceTile({
   hint: string;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-background/70 p-4">
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+    <div className="w-full rounded-xl border border-border bg-background/70 p-3 sm:rounded-2xl sm:p-4">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary sm:h-10 sm:w-10 sm:rounded-2xl">
           <Icon className="h-4 w-4" />
         </div>
-        <div className="min-w-0">
-          <p className="text-sm text-muted-foreground">{label}</p>
-          <p className="font-medium text-foreground">{value}</p>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-xs text-muted-foreground sm:text-sm">{label}</p>
+          <p className="truncate text-sm font-medium text-foreground sm:text-base">{value}</p>
         </div>
       </div>
-      <p className="mt-3 text-xs leading-5 text-muted-foreground">{hint}</p>
+      <p className="mt-2 text-xs leading-5 text-muted-foreground sm:mt-3">{hint}</p>
     </div>
   );
 }
 
 function SummaryRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-background/70 px-4 py-3">
+    <div className="w-full rounded-xl border border-border bg-background/70 px-3 py-2.5 sm:rounded-2xl sm:px-4 sm:py-3">
       <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{label}</p>
-      <p className="mt-1 text-sm font-medium text-foreground">{value}</p>
+      <p className="mt-1 truncate text-sm font-medium text-foreground">{value}</p>
     </div>
   );
 }

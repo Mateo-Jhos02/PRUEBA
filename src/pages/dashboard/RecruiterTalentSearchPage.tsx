@@ -224,7 +224,7 @@ export default function RecruiterTalentSearchPage() {
   };
 
   return (
-    <div className="space-y-4 p-4 md:space-y-6 md:p-0">
+    <div className="w-full max-w-full space-y-4 overflow-x-hidden p-4 md:space-y-6 md:p-0">
       <motion.section
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
